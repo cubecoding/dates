@@ -1,0 +1,41 @@
+{
+  "name": "cubecoding/dates",
+  "description": "A handy little Package for dealing with the beauty of german Dates.",
+  "type": "library",
+  "require": {
+    "php": "^8.3"
+  },
+  "require-dev": {
+    "illuminate/support": "^11.1",
+    "laravel/pint": "^1.15",
+    "orchestra/testbench": "^9.0",
+    "pestphp/pest": "^2.34"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Cubecoding\\Dates\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Cubecoding\\Dates\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Igor Romankiewicz",
+      "email": "hallo@cubecoding.de"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist",
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
