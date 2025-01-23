@@ -1,7 +1,6 @@
 <?php
 
 namespace Cubecoding\Dates;
-use Cubecoding\Dates\DaysInRange;
 
 class DaysInYear
 {
