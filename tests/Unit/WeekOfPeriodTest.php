@@ -1,9 +1,11 @@
 <?php
 
+use Cubecoding\Dates\WeekOfPeriod;
+
 it('can get the week of period', function (string $date, int $period) {
 
     \Illuminate\Support\Facades\Config::set('dates.settings.period_start_date', '2022-12-19');
-    $weekOfPeriod = \Cubecoding\Dates\WeekOfPeriod::from($date);
+    $weekOfPeriod = WeekOfPeriod::from($date);
 
     expect($weekOfPeriod)->toBe($period);
 
@@ -696,3 +698,9 @@ it('can get the week of period', function (string $date, int $period) {
     ['2024-11-03', 2],
     ['2024-11-04', 3],
 ]);
+
+it('works with custom start date', function () {
+    $result = WeekOfPeriod::from(date: '2023-01-16', periodWeeks: 3, customStartDate: '2023-01-02');
+
+    expect($result)->toBe(3);
+});
