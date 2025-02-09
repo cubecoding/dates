@@ -10,11 +10,11 @@ class DaysInMonth
 
     private string $end;
 
-    public function __construct(string $month = null)
+    public function __construct(?string $month = null)
     {
         $start = $month
             ? "$month-01"
-            : now()->format('Y-m-') . '01';
+            : now()->format('Y-m-').'01';
 
         $this->start = $start;
 

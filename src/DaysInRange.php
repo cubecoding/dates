@@ -13,8 +13,8 @@ class DaysInRange
 
     public function __construct(string $start, string $end)
     {
-        $this->start = Carbon::createFromFormat('Y-m-d', $start, 'UTC')->setTime(12,0,0);
-        $this->end = Carbon::createFromFormat('Y-m-d', $end, 'UTC')->setTime(12,0,0);
+        $this->start = Carbon::createFromFormat('Y-m-d', $start, 'UTC')->setTime(12, 0, 0);
+        $this->end = Carbon::createFromFormat('Y-m-d', $end, 'UTC')->setTime(12, 0, 0);
     }
 
     public static function get(string $start, string $end): \Illuminate\Support\Collection

@@ -16,6 +16,8 @@ class Date extends Carbon
 
     public string $weekDay = '';
 
+    public int $weekDayOfMonth = 0;
+
     public bool $isSpecial = false;
 
     public bool $isWeekend = false;
@@ -31,6 +33,7 @@ class Date extends Carbon
         $this->title = "{$this->isoFormat('dd')}, {$this->format('d.m.y')}";
         $this->shortTitle = "{$this->isoFormat('dd')}. {$this->format('d')}.";
         $this->weekDay = $this->isoFormat('dd');
+        $this->weekDayOfMonth = $this->getWeekDayOfMonth();
         $this->isSpecial = $this->isSpecial();
         $this->isWeekend = $this->isWeekend();
         $this->isWorkingDay = $this->isWorkingDay();
@@ -39,6 +42,11 @@ class Date extends Carbon
     private function getSlug(): string
     {
         return 'day'.$this->format('Ymd');
+    }
+
+    private function getWeekDayOfMonth(): int
+    {
+        return intdiv($this->day - 1, 7) + 1;
     }
 
     private function isSpecial(): bool
@@ -61,6 +69,7 @@ class Date extends Carbon
             'title' => $this->title,
             'shortTitle' => $this->shortTitle,
             'weekDay' => $this->weekDay,
+            'weekDayOfMonth' => $this->weekDayOfMonth,
             'dayOfWeek' => $this->dayOfWeekIso,
             'isSpecial' => $this->isSpecial,
             'isWeekend' => $this->isWeekend,
